@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Merge Game - Challenge Your Strategic Skills | GodGameZone</title>
+    <meta name="description" content="Play Number Merge Game online for free. Combine identical numbers, create higher values, and test your strategic thinking in this addictive puzzle game.">
+    <link rel="canonical" href="https://godgamezone.com/games/number-merge-game/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-orange: #FF9500;
+            --apple-red: #FF3B30;
+            --apple-purple: #AF52DE;
+            --apple-yellow: #FFCC00;
+            --apple-teal: #5AC8FA;
+            --apple-pink: #FF2D55;
+            --apple-gray: #8E8E93;
+            --apple-gray-light: #F2F2F7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--apple-gray-light);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--apple-blue);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--apple-blue), var(--apple-teal));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-link {
+            color: white;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .game-section {
+            padding: 2rem 0;
+        }
+        
+        .game-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .game-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .game-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .game-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .game-iframe-container {
+            flex: 1 1 65%;
+            min-width: 300px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        
+        .game-details {
+            flex: 1 1 30%;
+            min-width: 250px;
+        }
+        
+        .game-info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+            border-bottom: 2px solid var(--apple-blue);
+            padding-bottom: 0.5rem;
+        }
+        
+        .info-list {
+            list-style: none;
+        }
+        
+        .info-item {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: baseline;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            min-width: 100px;
+            color: #555;
+        }
+        
+        .info-value {
+            color: #333;
+        }
+        
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: var(--apple-blue);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .tag.popular {
+            background: var(--apple-orange);
+        }
+        
+        .tag.new {
+            background: var(--apple-green);
+        }
+        
+        .game-description {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .description-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+            border-bottom: 2px solid var(--apple-green);
+            padding-bottom: 0.5rem;
+        }
+        
+        .feature-list {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .feature-item {
+            margin-bottom: 0.8rem;
+        }
+        
+        .game-instructions {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructions-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+            border-bottom: 2px solid var(--apple-purple);
+            padding-bottom: 0.5rem;
+        }
+        
+        .tip-list {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .tip-item {
+            margin-bottom: 1rem;
+        }
+        
+        .similar-games {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .similar-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            border-bottom: 2px solid var(--apple-orange);
+            padding-bottom: 0.5rem;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .game-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-img {
+            height: 150px;
+            background: linear-gradient(to right, var(--apple-purple), var(--apple-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .card-content {
+            padding: 1rem;
+        }
+        
+        .card-game-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .card-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1 1 200px;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--apple-blue);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-link a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer-link a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--apple-blue);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .game-iframe {
+                height: 400px;
+            }
+            
+            .game-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .game-iframe {
+                height: 300px;
+            }
+            
+            .game-title {
+                font-size: 1.8rem;
+            }
+            
+            .card-title, .description-title, .instructions-title, .similar-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../../index/index.html" class="logo">GodGameZone</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="../../index/index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Games</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="game-section">
+            <div class="container">
+                <div class="game-header">
+                    <h1 class="game-title">Number Merge Game</h1>
+                    <p class="game-subtitle">Merge identical numbers, create higher values, and test your strategic thinking in this addictive puzzle game!</p>
+                </div>
+
+                <div class="game-content">
+                    <div class="game-iframe-container">
+                        <iframe src="http://www.2048123.com" class="game-iframe" frameborder="0" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="game-details">
+                        <div class="game-info-card">
+                            <h2 class="card-title">Game Details</h2>
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <span class="info-label">Category:</span>
+                                    <span class="info-value">Puzzle, Strategy, Numbers</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Platform:</span>
+                                    <span class="info-value">Browser (PC & Mobile)</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Controls:</span>
+                                    <span class="info-value">Mouse or Touch</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Release Date:</span>
+                                    <span class="info-value">March 15, 2023</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Developer:</span>
+                                    <span class="info-value">PuzzleMind Studios</span>
+                                </li>
+                            </ul>
+                            <div class="tag-container">
+                                <span class="tag new">New</span>
+                                <span class="tag popular">Popular</span>
+                                <span class="tag">Featured</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-description">
+                    <h2 class="description-title">Game Description</h2>
+                    <p>Number Merge Game is an engaging puzzle game that challenges your strategic thinking and planning skills. The concept is simple yet addictive: merge identical numbers to create higher values, aiming to reach the highest number possible before running out of space on the board.</p>
+                    <p>Each time you merge two numbers, they combine to form a new number of higher value. For example, merging two 2s creates a 4, merging two 4s creates an 8, and so on. The challenge comes from managing your limited board space effectively while planning several moves ahead.</p>
+                    
+                    <p>Key features of Number Merge Game include:</p>
+                    <ul class="feature-list">
+                        <li class="feature-item">Simple drag-and-drop mechanics suitable for all ages</li>
+                        <li class="feature-item">Progressive difficulty that increases as you reach higher numbers</li>
+                        <li class="feature-item">Special power-ups that help you when you're in a tight spot</li>
+                        <li class="feature-item">Daily challenges with unique board configurations</li>
+                        <li class="feature-item">Achievement system that rewards strategic play</li>
+                        <li class="feature-item">Leaderboards to compare your highest scores with friends and players worldwide</li>
+                    </ul>
+                    
+                    <p>Whether you're looking for a quick mental workout during your coffee break or a longer strategic session, Number Merge Game offers a perfect blend of casual gameplay and deep strategy that will keep you engaged for hours. How high can you go?</p>
+                </div>
+
+                <div class="game-instructions">
+                    <h2 class="instructions-title">How to Play</h2>
+                    <p>Number Merge Game is easy to learn but challenging to master. Here are some tips to help you get started:</p>
+                    
+                    <ul class="tip-list">
+                        <li class="tip-item"><strong>Basic Rules:</strong> Drag and drop identical numbers onto each other to merge them into a higher number. For example, merge two 2s to create a 4, two 4s to create an 8, and so on.</li>
+                        <li class="tip-item"><strong>Plan Ahead:</strong> Always try to keep similar numbers close to each other for easier merging. Think several moves ahead to avoid getting stuck.</li>
+                        <li class="tip-item"><strong>Use the Edges:</strong> The edges of the board can be useful for organizing your numbers. Try to keep higher numbers in the corners.</li>
+                        <li class="tip-item"><strong>Create Space:</strong> Always prioritize creating empty spaces on the board. This gives you more flexibility for future moves.</li>
+                        <li class="tip-item"><strong>Power-ups:</strong> Use power-ups strategically when you're in a difficult situation. They can help clear the board or create valuable merges.</li>
+                    </ul>
+                </div>
+
+                <div class="similar-games">
+                    <h2 class="similar-title">More Games You Might Like</h2>
+                    <div class="games-grid">
+                        <a href="../monster-survivors/index.html" class="game-card">
+                            <div class="card-img" style="background: linear-gradient(to right, var(--apple-purple), var(--apple-blue));">
+                                <span>Monster Survivors</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-game-title">Monster Survivors</h3>
+                                <p class="card-text">Survive endless waves of monsters in this thrilling action-packed adventure!</p>
+                            </div>
+                        </a>
+                        
+                        <a href="../raft-io/index.html" class="game-card">
+                            <div class="card-img" style="background: linear-gradient(to right, var(--apple-blue), var(--apple-teal));">
+                                <span>Raft io</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-game-title">Raft io</h3>
+                                <p class="card-text">Build your raft, gather resources, and survive against sharks in this thrilling multiplayer survival game!</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">GodGameZone</h3>
+                    <p>Your ultimate destination for free online games. Play instantly without downloads or registrations.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="../../index/index.html">Home</a></li>
+                        <li class="footer-link"><a href="#">Popular Games</a></li>
+                        <li class="footer-link"><a href="#">New Games</a></li>
+                        <li class="footer-link"><a href="#">Categories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Contact Us</a></li>
+                        <li class="footer-link"><a href="#">FAQ</a></li>
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 GodGameZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

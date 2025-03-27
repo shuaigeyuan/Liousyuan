@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Games - Play Monster Survivors, Number Merge Game & More | LiousYuan</title>
+    <meta name="description" content="Play free online games at LiousYuan. Enjoy Monster Survivors, Number Merge Game, Raft IO and more exciting browser games. Experience thrilling gameplay and challenging adventures!">
+    <link rel="canonical" href="https://liousyuan.com/games/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            blue: '#007AFF',
+                            green: '#34C759',
+                            indigo: '#5856D6',
+                            orange: '#FF9500',
+                            pink: '#FF2D55',
+                            purple: '#AF52DE',
+                            red: '#FF3B30',
+                            teal: '#5AC8FA',
+                            yellow: '#FFCC00',
+                            gray: '#8E8E93',
+                            lightgray: '#E5E5EA'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .game-card {
+            transition: all 0.3s ease;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-apple-blue to-apple-purple text-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-4">
+            <nav class="flex justify-between items-center">
+                <a href="https://liousyuan.com/" class="text-2xl font-bold">LiousYuan</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="/games" class="text-apple-yellow font-semibold">Games</a>
+                    <a href="/tutorials" class="hover:text-apple-yellow transition-colors">Tutorials</a>
+                    <a href="/articles" class="hover:text-apple-yellow transition-colors">Articles</a>
+                    <a href="/products" class="hover:text-apple-yellow transition-colors">Products</a>
+                    <a href="/about" class="hover:text-apple-yellow transition-colors">About</a>
+                    <a href="/contact" class="hover:text-apple-yellow transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden focus:outline-none" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" id="mobile-menu">
+        <div class="bg-white w-64 h-full">
+            <div class="p-4 space-y-4">
+                <a href="/games" class="block text-apple-yellow font-semibold">Games</a>
+                <a href="/tutorials" class="block text-apple-blue hover:text-apple-purple">Tutorials</a>
+                <a href="/articles" class="block text-apple-blue hover:text-apple-purple">Articles</a>
+                <a href="/products" class="block text-apple-blue hover:text-apple-purple">Products</a>
+                <a href="/about" class="block text-apple-blue hover:text-apple-purple">About</a>
+                <a href="/contact" class="block text-apple-blue hover:text-apple-purple">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-16">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-b from-apple-blue/10 to-transparent py-12">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-6 text-gray-800">
+                    Free Online Games
+                </h1>
+                <p class="text-xl text-center text-gray-600 max-w-3xl mx-auto">
+                    Discover and play the best free online games. From action-packed adventures to brain-teasing puzzles, find your next favorite game here.
+                </p>
+            </div>
+        </section>
+
+        <!-- Games Grid -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center text-gray-800 border-b-2 border-apple-blue pb-2">
+                    Featured Games
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Monster Survivors -->
+                    <a href="/games/monster-survivors" class="game-card bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="relative">
+                            <div class="h-48 bg-gradient-to-r from-apple-purple to-apple-blue flex items-center justify-center">
+                                <span class="text-white text-2xl font-bold">Monster Survivors</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-apple-red text-white px-2 py-1 rounded-full text-sm">Popular</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Monster Survivors</h3>
+                            <p class="text-gray-600 mb-4">Survive endless waves of monsters in this thrilling action-packed adventure game!</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-apple-blue font-semibold">Play Now</span>
+                                <div class="flex items-center">
+                                    <div class="flex text-apple-yellow">★★★★★</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Number Merge Game -->
+                    <a href="/games/number-merge-game" class="game-card bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="relative">
+                            <div class="h-48 bg-gradient-to-r from-apple-green to-apple-teal flex items-center justify-center">
+                                <span class="text-white text-2xl font-bold">Number Merge Game</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-apple-orange text-white px-2 py-1 rounded-full text-sm">Puzzle</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Number Merge Game</h3>
+                            <p class="text-gray-600 mb-4">Merge identical numbers to create higher values in this addictive puzzle game!</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-apple-blue font-semibold">Play Now</span>
+                                <div class="flex items-center">
+                                    <div class="flex text-apple-yellow">★★★★☆</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Raft IO -->
+                    <a href="/games/raft-io" class="game-card bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="relative">
+                            <div class="h-48 bg-gradient-to-r from-apple-indigo to-apple-pink flex items-center justify-center">
+                                <span class="text-white text-2xl font-bold">Raft IO</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-apple-green text-white px-2 py-1 rounded-full text-sm">Multiplayer</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Raft IO</h3>
+                            <p class="text-gray-600 mb-4">Build, survive, and compete in this exciting multiplayer survival game on the open sea!</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-apple-blue font-semibold">Play Now</span>
+                                <div class="flex items-center">
+                                    <div class="flex text-apple-yellow">★★★★☆</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center text-gray-800 border-b-2 border-apple-purple pb-2">
+                    Game Categories
+                </h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="p-4 bg-gradient-to-r from-apple-blue to-apple-purple text-white rounded-lg text-center cursor-pointer hover:opacity-90">
+                        <h3 class="font-bold">Action</h3>
+                    </div>
+                    <div class="p-4 bg-gradient-to-r from-apple-green to-apple-teal text-white rounded-lg text-center cursor-pointer hover:opacity-90">
+                        <h3 class="font-bold">Puzzle</h3>
+                    </div>
+                    <div class="p-4 bg-gradient-to-r from-apple-orange to-apple-red text-white rounded-lg text-center cursor-pointer hover:opacity-90">
+                        <h3 class="font-bold">Strategy</h3>
+                    </div>
+                    <div class="p-4 bg-gradient-to-r from-apple-indigo to-apple-pink text-white rounded-lg text-center cursor-pointer hover:opacity-90">
+                        <h3 class="font-bold">Multiplayer</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">LiousYuan</h3>
+                    <p class="text-gray-400">Your destination for the best online games.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Action Games</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Puzzle Games</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Strategy Games</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Multiplayer Games</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="/contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="/privacy" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="/terms" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2025 LiousYuan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.querySelector('button[aria-label="Menu"]');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

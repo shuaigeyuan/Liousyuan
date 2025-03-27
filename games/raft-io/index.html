@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raft io - Survive and Build on the Open Ocean | GodGameZone</title>
+    <meta name="description" content="Play Raft io online for free. Build your raft, gather resources, and survive against sharks in this thrilling multiplayer survival game.">
+    <link rel="canonical" href="https://godgamezone.com/games/raft-io/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-orange: #FF9500;
+            --apple-red: #FF3B30;
+            --apple-purple: #AF52DE;
+            --apple-yellow: #FFCC00;
+            --apple-teal: #5AC8FA;
+            --apple-pink: #FF2D55;
+            --apple-gray: #8E8E93;
+            --apple-gray-light: #F2F2F7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--apple-gray-light);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--apple-blue);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--apple-blue), var(--apple-teal));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-link {
+            color: white;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .game-section {
+            padding: 2rem 0;
+        }
+        
+        .game-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .game-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .game-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .game-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .game-iframe-container {
+            flex: 1 1 65%;
+            min-width: 300px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        
+        .game-details {
+            flex: 1 1 30%;
+            min-width: 250px;
+        }
+        
+        .game-info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+            border-bottom: 2px solid var(--apple-blue);
+            padding-bottom: 0.5rem;
+        }
+        
+        .info-list {
+            list-style: none;
+        }
+        
+        .info-item {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: baseline;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            min-width: 100px;
+            color: #555;
+        }
+        
+        .info-value {
+            color: #333;
+        }
+        
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: var(--apple-blue);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .tag.popular {
+            background: var(--apple-orange);
+        }
+        
+        .tag.new {
+            background: var(--apple-green);
+        }
+        
+        .game-description {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .description-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+            border-bottom: 2px solid var(--apple-green);
+            padding-bottom: 0.5rem;
+        }
+        
+        .feature-list {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .feature-item {
+            margin-bottom: 0.8rem;
+        }
+        
+        .game-instructions {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructions-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+            border-bottom: 2px solid var(--apple-purple);
+            padding-bottom: 0.5rem;
+        }
+        
+        .tip-list {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .tip-item {
+            margin-bottom: 1rem;
+        }
+        
+        .similar-games {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .similar-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            border-bottom: 2px solid var(--apple-orange);
+            padding-bottom: 0.5rem;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .game-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-img {
+            height: 150px;
+            background: linear-gradient(to right, var(--apple-purple), var(--apple-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .card-content {
+            padding: 1rem;
+        }
+        
+        .card-game-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .card-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .game-review {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .review-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+            border-bottom: 2px solid var(--apple-red);
+            padding-bottom: 0.5rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stars {
+            display: flex;
+            margin-right: 1rem;
+        }
+        
+        .star {
+            color: var(--apple-yellow);
+            font-size: 1.5rem;
+            margin-right: 0.25rem;
+        }
+        
+        .rating-number {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1 1 200px;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--apple-blue);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-link a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer-link a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--apple-blue);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .game-iframe {
+                height: 400px;
+            }
+            
+            .game-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .game-iframe {
+                height: 300px;
+            }
+            
+            .game-title {
+                font-size: 1.8rem;
+            }
+            
+            .card-title, .description-title, .instructions-title, .similar-title, .review-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../../index/index.html" class="logo">GodGameZone</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="../../index/index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Games</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">u2630</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="game-section">
+            <div class="container">
+                <div class="game-header">
+                    <h1 class="game-title">Raft io</h1>
+                    <p class="game-subtitle">Build your raft, gather resources, and survive against sharks in this thrilling multiplayer survival game!</p>
+                </div>
+
+                <div class="game-content">
+                    <div class="game-iframe-container">
+                        <iframe src="http://www.silvergames.com/en/raft-io/iframe" class="game-iframe" frameborder="0" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="game-details">
+                        <div class="game-info-card">
+                            <h2 class="card-title">Game Details</h2>
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <span class="info-label">Category:</span>
+                                    <span class="info-value">Survival, Multiplayer, Crafting</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Platform:</span>
+                                    <span class="info-value">Browser (PC & Mobile)</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Controls:</span>
+                                    <span class="info-value">Mouse/Touch, WASD/Arrow Keys</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Release Date:</span>
+                                    <span class="info-value">January 12, 2023</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Developer:</span>
+                                    <span class="info-value">Ocean Games Studio</span>
+                                </li>
+                            </ul>
+                            <div class="tag-container">
+                                <span class="tag popular">Popular</span>
+                                <span class="tag">Multiplayer</span>
+                                <span class="tag">Featured</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-description">
+                    <h2 class="description-title">Game Description</h2>
+                    <p>Raft io is an exciting multiplayer survival game that puts you in the middle of the vast ocean on a tiny wooden raft. Your mission is simple yet challenging: survive, expand your raft, and defend yourself against the dangers of the deep blue sea.</p>
+                    <p>Starting with just a small wooden platform and a hook, you'll need to catch floating debris, craft tools and structures, and gradually transform your humble raft into a floating fortress. As you expand your raft, you'll attract the attention of hungry sharks that will try to destroy your creation and end your journey.</p>
+                    
+                    <p>Key features of Raft io include:</p>
+                    <ul class="feature-list">
+                        <li class="feature-item">Multiplayer gameplay - team up with friends or compete against other players</li>
+                        <li class="feature-item">Intuitive crafting system with dozens of items and structures to build</li>
+                        <li class="feature-item">Resource management - balance your need for food, water, and building materials</li>
+                        <li class="feature-item">Dynamic ocean environment with day/night cycles and weather effects</li>
+                        <li class="feature-item">Dangerous sea creatures including the persistent shark that constantly circles your raft</li>
+                        <li class="feature-item">Exploration of small islands for rare resources and treasures</li>
+                    </ul>
+                    
+                    <p>Whether you're playing solo or with friends, Raft io offers a unique survival experience that combines resource gathering, crafting, and combat in an endless ocean setting. How long can you survive the harsh conditions of the open sea?</p>
+                </div>
+
+                <div class="game-review">
+                    <h2 class="review-title">Game Review</h2>
+                    <div class="rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star" style="color: #ccc;">★</span>
+                        </div>
+                        <span class="rating-number">4.2/5</span>
+                    </div>
+                    
+                    <p>Raft io delivers an engaging survival experience with its simple yet addictive gameplay loop. The core mechanics of gathering resources, expanding your raft, and fending off sharks create a satisfying progression system that keeps players coming back for more.</p>
+                    
+                    <p>The multiplayer aspect adds a whole new dimension to the game, allowing for cooperative building or competitive resource gathering. Working together with friends to create a massive floating structure feels rewarding, while the constant threat of sharks maintains tension throughout the experience.</p>
+                    
+                    <p>Visually, the game features a clean, colorful art style that works well in a browser environment. The water effects and day/night cycle add atmosphere to the endless ocean setting. Sound design is particularly effective, with the ominous music intensifying when sharks approach your raft.</p>
+                    
+                    <p>The only drawbacks are occasional difficulty spikes for new players and some repetitiveness in the mid to late game. Despite these minor issues, Raft io stands out as one of the more polished and enjoyable browser-based survival games available today.</p>
+                </div>
+
+                <div class="game-instructions">
+                    <h2 class="instructions-title">How to Play</h2>
+                    <p>Raft io is easy to learn but challenging to master. Here are some tips to help you survive the open ocean:</p>
+                    
+                    <ul class="tip-list">
+                        <li class="tip-item"><strong>Basic Controls:</strong> Use WASD or arrow keys to move around your raft. Click and hold to throw your hook and collect floating resources. Right-click to use tools or place items.</li>
+                        <li class="tip-item"><strong>Resource Priority:</strong> Focus on collecting wood and plastic first, as these are essential for expanding your raft and crafting basic tools. Food and water should be your next priority.</li>
+                        <li class="tip-item"><strong>Raft Expansion:</strong> Build your raft strategically. Create a compact design initially to make defense easier, then expand outward as you gather more resources.</li>
+                        <li class="tip-item"><strong>Shark Defense:</strong> Craft a spear as soon as possible to defend against shark attacks. When a shark is attacking your raft, you'll see visual indicators showing which section is being targeted.</li>
+                        <li class="tip-item"><strong>Advanced Survival:</strong> Build water purifiers to convert seawater into drinkable water, and create fishing rods to catch fish for food. Establish gardens on your raft to grow sustainable food sources.</li>
+                    </ul>
+                </div>
+
+                <div class="similar-games">
+                    <h2 class="similar-title">More Games You Might Like</h2>
+                    <div class="games-grid">
+                        <a href="../monster-survivors/index.html" class="game-card">
+                            <div class="card-img" style="background: linear-gradient(to right, var(--apple-purple), var(--apple-blue));">
+                                <span>Monster Survivors</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-game-title">Monster Survivors</h3>
+                                <p class="card-text">Survive endless waves of monsters in this thrilling action-packed adventure!</p>
+                            </div>
+                        </a>
+                        
+                        <a href="../number-merge-game/index.html" class="game-card">
+                            <div class="card-img" style="background: linear-gradient(to right, var(--apple-green), var(--apple-teal));">
+                                <span>Number Merge Game</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-game-title">Number Merge Game</h3>
+                                <p class="card-text">Merge identical numbers to create higher values in this addictive puzzle game!</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">GodGameZone</h3>
+                    <p>Your ultimate destination for free online games. Play instantly without downloads or registrations.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="../../index/index.html">Home</a></li>
+                        <li class="footer-link"><a href="#">Popular Games</a></li>
+                        <li class="footer-link"><a href="#">New Games</a></li>
+                        <li class="footer-link"><a href="#">Categories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Contact Us</a></li>
+                        <li class="footer-link"><a href="#">FAQ</a></li>
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 GodGameZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
