@@ -11,3 +11,14 @@ https://www.silvergames.com/en/minipool-io/iframe
 http://www.crazygames.com/gameframe/wingsio
 
 https://www.silvergames.com/en/piano-tiles/iframe
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-14QDZLQR5W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-14QDZLQR5W');
+</script>
