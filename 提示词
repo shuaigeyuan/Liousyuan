@@ -34,21 +34,6 @@
 要求这个游戏页面在 PC 和移动端适配性良好，配色采用苹果典型色系，包含一个一级 H1 标签和多个 H2 标签，有 canonical url，网站语言是地道英文
 
 
-你是一位精通谷歌 SEO 和 HTML&TAIlwind 语法的十年全栈工程师
-游戏 Agario，
-在games/agario，目录下新建游戏页面index文件
-游戏名字即关键词是 agario，
-在线游戏的 iframe 地址是 https://www.silvergames.com/en/agario/iframe
-请帮我修改输出一个完整版的 HTML 和 CSS 代码，游戏标题，一句话介绍，在线游戏的 IFRAME 内容，游戏基本情况叙述，
-要求这个游戏页面在 PC 和移动端适配性良好，配色采用苹果典型色系，包含一个一级 H1 标签和多个 H2 标签，有 canonical url，网站语言是地道英文
-
-你是一位精通谷歌 SEO 和 HTML&TAIlwind 语法的十年全栈工程师
-游戏 Diepio,
-在games/diepio，目录下新建游戏页面index文件
-游戏名字即关键词是 diepio，
-在线游戏的 iframe 地址是 https://www.silvergames.com/en/diepio/iframe
-请帮我修改输出一个完整版的 HTML 和 CSS 代码，游戏标题，一句话介绍，在线游戏的 IFRAME 内容，游戏基本情况叙述，
-要求这个游戏页面在 PC 和移动端适配性良好，配色采用苹果典型色系，包含一个一级 H1 标签和多个 H2 标签，有 canonical url，网站语言是地道英文
 
 
 你是一位精通谷歌 SEO 和 HTML&TAIlwind 语法的十年全栈工程师
@@ -67,8 +52,6 @@
 请帮我修改输出一个完整版的 HTML 和 CSS 代码，游戏标题，一句话介绍，在线游戏的 IFRAME 内容，游戏基本情况叙述，
 要求这个游戏页面在 PC 和移动端适配性良好，配色采用苹果典型色系，包含一个一级 H1 标签和多个 H2 标签，有 canonical url，网站语言是地道英文
 
-
-
 #w游戏站主页提示词：
 你是一位精通谷歌 SEO 和 HTML&TAIlwind 语法的十年全栈工程师
 我要做的游戏站是网站https://liousyuan.com/ 的核心功能，
@@ -84,11 +67,10 @@
 修改为网站主页最前面的3个推荐的游戏，并链接到对应的游戏页面。
 
 #游戏站主页新增新的游戏的提示词：
-在网站主页加入新增的游戏，并链接到对应的游戏页面，分别是
+在游戏站主页加入新增的游戏，并链接到对应的游戏页面，分别是
 games/game3目录下的index文件和games/game4目录下的index文件，
 并添加游戏的标题，描述等，与第一个游戏样式保持一致。
 点击不同的游戏框，进入对应的游戏页面。
-在游戏站主页加入这个新增的游戏链接diepio，并链接到对应的游戏页面
 
 #w网站主页提示词：
 你是一位精通谷歌 SEO 和 HTML&TAIlwind 语法的十年全栈工程师
@@ -96,3 +78,45 @@ games/game3目录下的index文件和games/game4目录下的index文件，
 并设置可以跳转到游戏站主页的按钮，方便用户跳转到游戏站主页，查看使用更多的游戏。
 要求这个页面在 PC 和移动端适配性良好，配色采用苹果典型色系，包含一个一级 H1 标签和多个 H2 标签，有 canonical url，网站语言是地道英文
 
+
+
+
+
+
+
+
+
+
+
+
+
+你是一位精通谷歌 SEO 和 HTML&TAIlwind 语法的十年全栈工程师
+游戏 Piano Tiles，
+在games/piano-tiles，目录下新建游戏页面index文件
+游戏名字即关键词是 piano-tiles，
+在线游戏的 iframe 地址是 https://www.silvergames.com/en/piano-tiles/iframe
+请帮我修改输出一个完整版的 HTML 和 CSS 代码，游戏标题，一句话介绍，在线游戏的 IFRAME 内容，游戏基本情况叙述，
+要求这个游戏页面在 PC 和移动端适配性良好，配色采用苹果典型色系，包含一个一级 H1 标签和多个 H2 标签，有 canonical url，网站语言是地道英文
+
+在游戏站主页加入新增的游戏，并链接到对应的游戏页面
+games/piano-tiles目录下的index文件，
+并添加游戏的标题，描述等，与第一个游戏样式保持一致。
+点击不同的游戏框，进入对应的游戏页面。
+
+
+
+
+
+
+
+
+
+
+
+你是一位精通谷歌 SEO 和 HTML&TAIlwind 语法的十年全栈工程师
+游戏 Diepio,
+在games/diepio，目录下新建游戏页面index文件
+游戏名字即关键词是 diepio，
+在线游戏的 iframe 地址是 https://www.silvergames.com/en/diepio/iframe
+请帮我修改输出一个完整版的 HTML 和 CSS 代码，游戏标题，一句话介绍，在线游戏的 IFRAME 内容，游戏基本情况叙述，
+要求这个游戏页面在 PC 和移动端适配性良好，配色采用苹果典型色系，包含一个一级 H1 标签和多个 H2 标签，有 canonical url，网站语言是地道英文
